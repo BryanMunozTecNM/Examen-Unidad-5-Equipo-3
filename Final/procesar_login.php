@@ -2,8 +2,8 @@
 // Establecer las credenciales de la base de datos
 $host = 'localhost';
 $dbname = 'hospital_del_niño';
-$user = 'bryan';
-$password = 'bryan';
+$user = 'root';
+$password = '';
 
 // Conectar a la base de datos
 try {

@@ -1,5 +1,13 @@
 <?php
+
+// Establecer las credenciales de la base de datos
+$host = 'localhost';
+$dbname = 'hospital_del_niño';
+$user = 'root';
+$password = '';
+
 session_start();
+
 
 // Incluir la clase Database (ajusta la ruta según la estructura de tu proyecto)
 require_once '../ORM/Database.php';
@@ -45,8 +53,8 @@ try {
             case 'EMPLEADO':
                 header("Location: inicioEmpleado.html");
                 break;
-            case 'CLIENTE':
-                header("Location: inicioCliente.html");
+            case 'DOC':
+                header("Location: inicioDoc.html");
                 break;
             default:
                 // Por defecto, redirigir a algún lugar

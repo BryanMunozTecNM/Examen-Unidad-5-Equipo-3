@@ -212,32 +212,35 @@
         }
 
         function editarDoctor() {
-            const formData = {
-                id: $('#doctorId').val(),
-                nombre: $('#nombre').val(),
-                apellidos: $('#apellidos').val(),
-                especialidad: $('#especialidad').val()
-            };
+    const formData = {
+        id: $('#doctorId').val(),
+        nombre: $('#nombre').val(),
+        apellidos: $('#apellidos').val(),
+        especialidad: $('#especialidad').val()
+    };
 
-            $.ajax({
-                url: '../update_doctor.php',
-                method: 'POST',
-                data: formData,
-                success: function(response) {
-                    const result = JSON.parse(response);
-                    if (result.status === 'success') {
-                        $('#agregarDoctorModal').modal('hide');
-                        cargarDoctores();
-                        alert(result.message);
-                    } else {
-                        alert('Error: ' + result.message);
-                    }
-                },
-                error: function() {
-                    alert('Error en la solicitud');
+    $.ajax({
+        url: '../update_doctor.php',
+        method: 'POST',
+        data: formData,
+        success: function(response) {
+            const result = JSON.parse(response);
+            if (result.status === 'success') {
+                $('#agregarDoctorModal').modal('hide');
+                cargarDoctores(); // Actualizar la lista de doctores
+                alert(result.message); // Mostrar mensaje de éxito
+            } else {
+                alert('Error: ' + result.message); // Mostrar mensaje de error si falla
             }
-        });
-    }
+        },
+        error: function() {
+            alert('Error en la solicitud');
+        }
+    });
+}
+
+
+
 </script>
 </body>
 </html>

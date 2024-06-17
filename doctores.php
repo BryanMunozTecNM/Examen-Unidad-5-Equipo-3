@@ -33,7 +33,7 @@
                         <a href="#" id="login-link" class="nav-link text-white">Bienvenida Admin, Bryan</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Final/inicio.html" class="nav-link text-white">Inicio</a>
+                        <a href="Final/inicioAdmin.html" class="nav-link text-white">Inicio</a>
                     </li>
                     
                 </ul>

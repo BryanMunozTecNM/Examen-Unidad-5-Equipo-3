@@ -1,13 +1,10 @@
 <?php
-<<<<<<< HEAD
 // Establecer las credenciales de la base de datos
 $host = 'localhost';
 $dbname = 'hospital_del_niño';
 $user = 'root';
 $password = '';
-=======
 session_start();
->>>>>>> 173e2dae78ae8e6dab061bb60358f88662ac317d
 
 // Incluir la clase Database (ajusta la ruta según la estructura de tu proyecto)
 require_once '../ORM/Database.php';
@@ -69,5 +66,3 @@ try {
     // Capturar cualquier error de conexión o consulta
     echo "Error al conectar a la base de datos: " . $e->getMessage();
 }
-?>
-

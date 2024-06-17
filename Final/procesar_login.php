@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 // Establecer las credenciales de la base de datos
 $host = 'localhost';
@@ -8,6 +9,9 @@ $password = '';
 
 session_start();
 
+=======
+session_start();
+>>>>>>> a87b2eb96a5fbf853e4f8177cd34a41c054fcd47
 
 // Incluir la clase Database (ajusta la ruta según la estructura de tu proyecto)
 require_once '../ORM/Database.php';
@@ -48,11 +52,11 @@ try {
             case 'ADMIN':
                 header("Location: inicioAdmin.html");
                 break;
-            case 'PADRE':
-                header("Location: inicioPadre.html");
+            case 'EMPLEADO':
+                header("Location: inicioEmpleado.html");
                 break;
-            case 'DOC':
-                header("Location: inicioDoc.html");
+            case 'CLIENTE':
+                header("Location: inicioCliente.html");
                 break;
             default:
                 // Por defecto, redirigir a algún lugar

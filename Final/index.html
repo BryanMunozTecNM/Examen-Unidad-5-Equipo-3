@@ -30,6 +30,10 @@
                 $(".login-container").toggle();
             });
 
+            $('#register-link').click(function () {
+                $(".register-container").toggle();
+            })
+
             //Toggle para mostrar el formulario de registro
 
 
@@ -56,6 +60,32 @@
                 // Si la validación es exitosa, enviar el formulario
                 this.submit();
             });
+
+            $('#registerForm').submit(function (event) {
+                event.preventDefault();
+
+                var nombre = $("#rName").val()
+                var apellido = $("#rLastName").val()
+                var login = $("#rLogin").val()
+                var password = $("#rPassword").val()
+                var rol = $("#rol").val()
+
+
+
+                if (nombre === '' || apellido === '' || login === '' || password === '' || rol === '') {
+                    // Mostrar mensaje de advertencia utilizando SweetAlert2
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Campos Vacíos',
+                        text: 'Por favor, complete todos los campos.',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar'
+                    });
+                    return false; // Evitar el envío del formulario
+                }
+
+                this.submit();
+            })
 
             // Mostrar mensaje de error si existe en la URL (opcional)
             const urlParams = new URLSearchParams(window.location.search);
@@ -110,6 +140,39 @@
         </div>
 
         <!-- Formulario para Registro de usuarios -->
+        <div style="position: absolute; top: 90%; left: 50%; transform: translate(-50%, -50%)">
+            <div class="register-container" style="display: none; background-color: whitesmoke; padding: 20px;">
+                <h2>Registrar Usuario</h2>
+                <form id="registerForm" action="registerNewUser.php" method="post" novalidate>
+                    <div class="form-group">
+                        <label for="rName">Nombre:</label><br>
+                        <input type="text" id="rName" name="rName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rLastName">Apellido:</label><br>
+                        <input type="text" id="rLastName" name="rLastName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rUsername">Usuario:</label><br>
+                        <input type="text" id="rUsername" name="rUsername" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rPassword">Password:</label><br>
+                        <input type="password" id="rPassword" name="rPassword" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rol">Rol:</label><br>
+                        <select name="rol" id="rol">
+                            <option value="">-- Selecciona una opcion --</option>
+                            <option value="ADMIN">ADMIN</option>
+                            <option value="PADRE">PADRE</option>
+                            <option value="DOC">DOCTOR</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                </form>
+            </div>
+        </div>
         <img src="img/fondo.jpg" alt="" width="100%">
     </main>
     <footer>

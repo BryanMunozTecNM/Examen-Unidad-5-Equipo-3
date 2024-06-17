@@ -1,5 +1,12 @@
+<?php
+session_start();
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +21,20 @@
         .header-image {
             width: 100%;
             height: auto;
-            max-height: 300px; /* Ajusta esta altura según tu preferencia */
+            max-height: 300px;
+            /* Ajusta esta altura según tu preferencia */
             object-fit: cover;
         }
+
         .navbar-brand img {
             width: 40px;
             height: 40px;
         }
+
         .dropdown-menu {
             text-align: center;
         }
+
         .welcome-avatar {
             width: 30px;
             height: 30px;
@@ -31,6 +42,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="/img/padre.jpg" alt="Fondo" class="header-image">
@@ -47,7 +59,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="/img/avatarP.png" alt="Avatar" class="rounded-circle welcome-avatar"> Bienvenido: Papá Lionel
+                                <img src="/img/avatarP.png" alt="Avatar" class="rounded-circle welcome-avatar"> Bienvenido Padre <?php echo htmlspecialchars($username) ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="index.html">Áreas de Interés</a>
@@ -60,4 +72,5 @@
         </div>
     </header>
 </body>
+
 </html>

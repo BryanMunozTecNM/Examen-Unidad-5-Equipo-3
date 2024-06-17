@@ -46,7 +46,7 @@ try {
                 header("Location: inicioAdmin.html");
                 break;
             case 'PADRE':
-                header("Location: inicioPadre.html");
+                header("Location: inicioPadre.php");
                 break;
             case 'DOC':
                 header("Location: inicioDoc.html");

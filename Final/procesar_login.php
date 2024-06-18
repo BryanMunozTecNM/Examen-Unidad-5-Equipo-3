@@ -24,21 +24,19 @@ try {
     $connection = $db->getConnection();
 
     // Consulta SQL para verificar las credenciales
-    $query = "SELECT * FROM usuarios WHERE login = :login AND pwd = :pwd";
+    $query = "SELECT * FROM usuarios WHERE login = :login";
     $stmt = $connection->prepare($query);
-    $stmt->execute([
-        'login' => $login,
-        'pwd' => $pwd,
-    ]);
+    $stmt->execute(['login' => $login]);
 
     // Obtener el resultado de la consulta
     $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Verificar si las credenciales son válidas
-    if ($userData) {
+    if ($userData && password_verify($pwd, $userData['pwd'])) {
         // Las credenciales son válidas, guardar información en la sesión
         $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $userData['login'];
+        $_SESSION['username'] = $userData['nombres'];
+        $_SESSION['id'] = $userData['id'];
 
         // Determinar el rol del usuario
         $rol = $userData['rol'];
@@ -50,6 +48,7 @@ try {
                 break;
             case 'PADRE':
                 header("Location: inicioPadre.php");
+                break;
             case 'EMPLEADO':
                 header("Location: inicioEmpleado.html");
                 break;

@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="/Proyecto final/CSS/styles.css">
     <style>
         .table-striped thead tr th {
-            background-color: #444; 
-            color: #fff; 
+            background-color: #444;
+            color: #fff;
         }
     </style>
 </head>
+
 <body>
     <header width="100%">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -36,7 +37,7 @@
                     <li class="nav-item">
                         <a href="Final/inicioAdmin.html" class="nav-link text-white">Inicio</a>
                     </li>
-                    
+
                 </ul>
             </div>
         </nav>
@@ -47,22 +48,22 @@
             <h1 class="h1 text-center text-white">DOCTORES</h1>
         </div>
     </nav>
-    
+
     <?php
     require_once('ORM/Database.php');
     require_once('ORM/orm.php');
     require_once('ORM/doctores.php');
-    
+
     $db = new Database();
     $encontrado = $db->verificarDriver();
     ?>
-    
+
     <div class="text-left">
         <a href="insert_doctor.php" class="btn btn-success" data-title="Insertar" data-toggle="tooltip" title="Insert">
             <span class="glyphicon glyphicon-plus"></span> Añadir Doctor
         </a>
     </div>
-    
+
     <?php
     if ($encontrado) {
         $cnn = $db->getConnection();
@@ -70,7 +71,7 @@
         $doctores = $doctorModelo->getAll();
     }
     ?>
-    
+
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
@@ -84,7 +85,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($doctores as $doctor): ?>
+                <?php foreach ($doctores as $doctor) : ?>
                     <tr>
                         <td><?= $doctor['id']; ?></td>
                         <td><?= $doctor['nombre']; ?></td>
@@ -107,7 +108,7 @@
             </tbody>
         </table>
     </div>
-    
+
     <script>
         function confirmarEliminar(id) {
             if (confirm('¿Estás seguro que deseas eliminar este doctor?')) {
@@ -116,6 +117,5 @@
         }
     </script>
 </body>
+
 </html>
-=======
->>>>>>> a87b2eb96a5fbf853e4f8177cd34a41c054fcd47

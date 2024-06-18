@@ -62,7 +62,7 @@ $username = $_SESSION['username'];
                                 <img src="/img/avatarP.png" alt="Avatar" class="rounded-circle welcome-avatar"> Bienvenido Padre <?php echo htmlspecialchars($username) ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="index.html">Áreas de Interés</a>
+                                <a class="dropdown-item" href="./modificarUsuario.php">Áreas de Interés</a>
                                 <a class="dropdown-item" href="index.html">Cerrar sesión</a>
                             </div>
                         </li>
@@ -71,6 +71,18 @@ $username = $_SESSION['username'];
             </nav>
         </div>
     </header>
+    <div class="container admin-container d-flex justify-content-center">
+        <div class="col-md-4">
+            <div class="card admin-card text-center">
+                <img src="../img/niño-admin.png" class="card-img-top" alt="Niños">
+                <div class="card-body">
+                    <h5 class="card-title">Niños</h5>
+                    <p class="card-text">Administra la información de los niños.</p>
+                    <a href="../niños.php?id=1" class="btn btn-success">Gestionar Niños</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

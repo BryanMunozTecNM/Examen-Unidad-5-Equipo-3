@@ -1,5 +1,5 @@
 <?php
-class Padre extends Orm
+class Usuario extends Orm
 {
     function __construct(PDO $connection)
     {

@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    $pwdHash = password_hash($pwd, PASSWORD_BCRYPT);
+
     // Insertar con PDO
     $sql = "INSERT INTO usuarios (nombres, apellidos, login, pwd, rol) 
                 VALUES (:nombres, :apellidos, :login, :pwd, :rol)";
@@ -33,14 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':nombres', $nombres);
     $stmt->bindParam(':apellidos', $apellidos);
     $stmt->bindParam(':login', $login);
-    $stmt->bindParam(':pwd', $pwd);
+    $stmt->bindParam(':pwd', $pwdHash);
     $stmt->bindParam(':rol', $rol);
 
     $stmt->execute();
     // Obtener id generado
 
-    //header("Location: niñodisenio.php");
+
     header("Location: index.html");
-    //header("Location: niñodisenio.php?padre_id=" . urlencode($padre_id));
     exit;
 }
